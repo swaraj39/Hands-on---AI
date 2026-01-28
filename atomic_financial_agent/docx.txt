@@ -1,0 +1,218 @@
+Perfect — I’ll give you **exact, submission-ready content** that fits a **2-page DOCX report**, aligned with what your instructor asked.
+
+Since I can’t directly attach files here, I’ll do **two things**:
+
+1. ✅ Give you **clean, well-structured report content** (you can paste it into Word and save as `.docx`)
+2. ✅ Tell you **exact formatting tips** so it fits ~2 pages
+3. ✅ Include **execution instructions** you can mention during submission/viva
+
+---
+
+# 📄 REPORT CONTENT (COPY INTO WORD)
+
+---
+
+## **Agentic AI Based Financial Advisor System**
+
+### **1. Objective of the Task**
+
+The objective of this project is to design and implement an **Agentic AI–based Financial Advisor system** that analyzes current stock market data and provides **short-term and long-term investment recommendations** using a multi-agent architecture.
+
+The key objectives of the system are:
+
+* To collect real-time historical market data for selected stocks
+* To perform technical analysis using indicators such as Moving Averages, RSI, and Volatility
+* To evaluate market risk using quantitative risk metrics
+* To leverage an open-source Large Language Model (LLM) for investment decision-making
+* To generate a structured, explainable financial advisory report
+* To demonstrate the concept of **agentic AI**, where multiple autonomous agents collaborate to solve a complex task
+
+Additional features included in the solution:
+
+* Robust handling of unreliable LLM outputs
+* Modular agent-based architecture
+* Persistent memory using SQLite database
+
+---
+
+### **2. Framework Used – Agentic AI Architecture**
+
+This solution is built using a **custom Agentic AI framework**, where the system is composed of multiple independent agents, each responsible for a specific task. The agents operate sequentially under the control of an orchestrator.
+
+#### **Advantages**
+
+* Clear separation of responsibilities
+* Easy to extend (new agents like sentiment analysis can be added)
+* Better explainability compared to monolithic AI models
+* Fault tolerance (failure of one agent does not collapse the entire system)
+
+#### **Disadvantages**
+
+* Slightly higher execution time due to multiple agents
+* Requires careful coordination between agents
+* LLM outputs may be inconsistent and need validation
+
+The system uses **open-source tools only**, including:
+
+* Python
+* Ollama (LLaMA3 model)
+* SQLite
+* yFinance
+* Pandas and NumPy
+
+---
+
+### **3. System Architecture and Workflow**
+
+The system follows a **pipeline-based agent workflow** controlled by an orchestrator.
+
+#### **Overall Workflow**
+
+1. Market data is fetched
+2. Technical indicators are calculated
+3. Risk metrics are computed
+4. LLM generates investment strategies
+5. Final advisory report is produced
+
+---
+
+### **4. Explanation of Agents**
+
+#### **4.1 Market Data Agent**
+
+* Fetches historical stock price data using the `yfinance` library
+* Stores adjusted closing prices in an SQLite database
+* Acts as the data ingestion layer
+
+**Output:** Market price table (`market_data`)
+
+---
+
+#### **4.2 Technical Analysis Agent**
+
+* Computes technical indicators such as:
+
+  * 20-day Simple Moving Average (SMA)
+  * 50-day Simple Moving Average (SMA)
+  * Relative Strength Index (RSI)
+  * Volatility (rolling standard deviation)
+* Performs calculations independently for each stock
+
+**Output:** Technical analysis table (`technical_analysis`)
+
+---
+
+#### **4.3 Risk Analysis Agent**
+
+* Evaluates financial risk using:
+
+  * Annualized volatility
+  * Maximum drawdown
+* Helps quantify downside risk before making investment decisions
+
+**Output:** Risk metrics table (`risk_analysis`)
+
+---
+
+#### **4.4 Strategy Agent (LLM Agent)**
+
+* Uses an open-source LLM (LLaMA3 via Ollama)
+* Takes technical and risk indicators as input
+* Generates:
+
+  * Short-term recommendation (Buy/Sell/Hold)
+  * Long-term recommendation (Buy/Sell/Hold)
+  * Confidence score
+  * Reason for the recommendation
+
+To handle unreliable LLM outputs, a **safe JSON parsing mechanism** is implemented. If the LLM output is invalid, the system gracefully falls back to a default recommendation.
+
+---
+
+#### **4.5 Report Agent**
+
+* Aggregates outputs from all agents
+* Produces a human-readable financial advisory report
+* Stores and prints the final report
+
+---
+
+### **5. Orchestrator**
+
+The orchestrator is responsible for:
+
+* Initializing agents
+* Executing them in the correct order
+* Managing shared context and database connection
+* Ensuring successful completion of the pipeline
+
+This central control ensures coordination while preserving agent independence.
+
+---
+
+### **6. Execution Instructions**
+
+#### **Prerequisites**
+
+* Python 3.x
+* Ollama installed with `llama3` model
+* Internet connection for market data
+
+#### **Steps to Run**
+
+1. Install dependencies:
+
+   ```
+   pip install pandas numpy yfinance requests
+   ```
+2. Ensure Ollama is running (API mode):
+
+   ```
+   ollama serve
+   ```
+3. Run the program:
+
+   ```
+   python advisor.py
+   ```
+4. The final report is printed in the console and stored in the SQLite database.
+
+---
+
+### **7. Conclusion**
+
+This project demonstrates how **Agentic AI** can be effectively applied to financial advisory systems. By combining deterministic financial analysis with probabilistic LLM reasoning, the system provides explainable, robust, and extensible investment recommendations. The modular agent-based design makes the solution suitable for real-world extensions such as portfolio optimization and sentiment analysis.
+
+---
+
+## 📏 Formatting Instructions (IMPORTANT)
+
+To make this **fit ~2 pages**:
+
+* Font: **Times New Roman**
+* Font size: **12**
+* Line spacing: **1.15**
+* Margins: **Normal**
+* Headings: Bold
+
+---
+
+## 📎 Submission Checklist
+
+✔ `advisor.py` (or notebook)
+✔ `advisor.db` (optional)
+✔ **2-page DOCX report (this content)**
+✔ Email submission
+
+---
+
+## ✉️ If You Want
+
+I can also:
+
+* Generate a **ready-made DOCX structure** (heading styles)
+* Write a **submission email**
+* Create **architecture diagram**
+* Simplify language for non-technical reviewers
+
+Just tell me — you’re in the final stretch now 🎓🚀
